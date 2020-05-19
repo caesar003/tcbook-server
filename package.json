@@ -1,0 +1,31 @@
+{
+  "name": "tcbook-server",
+  "version": "1.0.0",
+  "description": "Server app for Tcbook social media",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caesar003/tcbook-server.git"
+  },
+  "author": "Caesar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caesar003/tcbook-server/issues"
+  },
+  "homepage": "https://github.com/caesar003/tcbook-server#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.1",
+    "mongojs": "^3.1.0",
+    "nodemon": "^2.0.4",
+    "pg": "^8.2.1"
+  }
+}
