@@ -11,11 +11,11 @@ const register = require('./controllers/register');
 const db = knex({
   client: 'pg',
   connection : {
-    host: '127.0.0.1',
-    user: 'me',
-    password: '123abc',
-    database: 'tcbook',
-    port: '5432',
+    host : '127.0.0.1',
+    user : 'me',
+    password : '123abc',
+    database : 'tcbook',
+    port : '5432',
   }
 });
 
@@ -248,34 +248,6 @@ app.post('/message', (req, res) => {
   .returning('*')
   .then(data => res.json(data))
   .catch(err => console.log(err))
-});
-
-app.post('/conversationlist', (req, res) => {
-  const {sender, receiver, message, identifier, sent_date} = req.body;
-  db.insert({
-    sender: sender,
-    receiver: receiver,
-    identifier: identifier,
-    last_message: message,
-    sent_date: sent_date,
-  }).into('conversationlist')
-  .returning('*')
-  .then(data => res.json(data))
-  .catch(err => console.log(err));
-});
-
-app.put('/conversationlist', (req, res) => {
-  const {sender, receiver, message, identifier, sent_date} = req.body;
-  db('conversationlist')
-  .update({
-    sender: sender,
-    receiver: receiver,
-    last_message: message,
-    sent_date: sent_date,
-  }).where('identifier', '=', identifier)
-  .returning('*').then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log(err));
 });
 
 app.listen(3027, ()=> {

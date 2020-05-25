@@ -1,7 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const app =express();
+const pool = require('./db.js');
+const app = express();
 
 const USERS = [
   {
@@ -27,9 +28,14 @@ app.get('/about', (req, res) => {
   res.send('about');
 });
 
+app.get('/users', (req, res) => {
+  const query = `select * from users`;
+  pool.query(query).then(data => res.json(data))
+  .catch(err=>console.log(err));
+})
+
 
 app.listen(3045);
 console.log('server is running on port 3045');
 
 module.exports = app;
-

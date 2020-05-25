@@ -1,3 +1,5 @@
 node_modules/
 *.txt
 public/*
+index.js
+db.js
